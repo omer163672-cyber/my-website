@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>🌌 عالم سميرة</title>
+
+<style>
+body {
+  font-family: Arial;
+  direction: rtl;
+  margin: 0;
+  background: radial-gradient(circle at top, #0b0f2a, #000);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* نجوم */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.3;
+  z-index: -2;
+}
+
+/* نجوم متحركة */
+.stars {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-shadow:
+    100px 200px white,
+    200px 400px white,
+    300px 100px white,
+    400px 300px white,
+    500px 150px white,
+    600px 350px white;
+  animation: moveStars 10s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveStars {
+  from {transform: translateY(0);}
+  to {transform: translateY(-1000px);}
+}
+
+/* صاروخ */
+.rocket {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+  font-size: 40px;
+  animation: fly 8s linear infinite;
+}
+
+@keyframes fly {
+  0% {left: -50px; bottom: 0;}
+  50% {left: 50%; bottom: 80%;}
+  100% {left: 100%; bottom: 0;}
+}
+
+/* كوكب */
+.planet {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #00eaff, #003366);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00eaff;
+  animation: rotatePlanet 10s linear infinite;
+}
+
+@keyframes rotatePlanet {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+/* شهاب */
+.meteor {
+  position: fixed;
+  width: 3px;
+  height: 100px;
+  background: white;
+  transform: rotate(45deg);
+  animation: meteorMove 3s linear infinite;
+}
+
+@keyframes meteorMove {
+  0% {top: -100px; left: -100px; opacity: 1;}
+  100% {top: 100%; left: 100%; opacity: 0;}
+}
+
+/* الهيدر */
+header {
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+}
+
+header img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+header h1 {
+  color: #00eaff;
+  text-shadow: 0 0 10px #00eaff;
+  margin: 15px;
+}
+
+/* البحث */
+input {
+  display: block;
+  margin: 20px auto;
+  width: 60%;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* الكروت */
+.card {
+  width: 70%;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.2);
+  line-height: 1.8;
+}
+
+.card h2 {
+  color: #00eaff;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 15px;
+  margin: 15px 0;
+}
+
+/* زر */
+button {
+  background: #00eaff;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* النص المخفي */
+.more {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- تأثيرات -->
+<div class="stars"></div>
+<div class="rocket">🚀</div>
+<div class="planet"></div>
+<div class="meteor"></div>
+
+<header>
+  <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+  <h1>🌌 عالم سميرة</h1>
+</header>
+
+<input id="search" onkeyup="search()" placeholder="🔍 ابحث هنا...">
+
+<!-- 🦠 الطاعون -->
+<div class="card">
+<h2>🦠 الطاعون… الكابوس اللي غير تاريخ البشرية</h2>
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Black_Death.jpg">
+<p>وباء مرعب قتل ملايين البشر في أوروبا.</p>
+
+<div class="more">
+<p>
+سببه بكتيريا Yersinia pestis، وانتقل عن طريق الفئران والبراغيث.
+كان الناس وقتها فاكرين إنه سحر أو عقاب.
+</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Yersinia_pestis.jpg">
+<p>
+دلوقتي بقى في علاج بفضل العلم 💊
+</p>
+</div>
+
+<button onclick="toggle(this)">اقرأ المزيد</button>
+</div>
+
+<!-- 💻 البرمجة -->
+<div class="card">
+<h2>💻 البرمجة… لغة المستقبل</h2>
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<p>البرمجة هي اللي بتخلينا نعمل مواقع وألعاب.</p>
+
+<div class="more">
+<p>
+لغات زي HTML وCSS وJavaScript هي بداية الطريق.
+ممكن تعملي تطبيقات وألعاب.
+</p>
+</div>
+
+<button onclick="toggle(this)">اقرأ المزيد</button>
+</div>
+
+<!-- 🤖 AI -->
+<div class="card">
+<h2>🤖 الذكاء الاصطناعي</h2>
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+<p>الذكاء الاصطناعي هو المستقبل.</p>
+
+<div class="more">
+<p>
+بيستخدم في الطب والألعاب والسيارات.
+وممكن تبقي مبرمجة AI 👩‍💻
+</p>
+</div>
+
+<button onclick="toggle(this)">اقرأ المزيد</button>
+</div>
+
+<footer>
+🚀 موقعك في عالم الفضاء
+</footer>
+
+<script>
+function search() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.getElementsByClassName("card");
+
+  for (let i = 0; i < cards.length; i++) {
+    let text = cards[i].innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      cards[i].style.display = "block";
+    } else {
+      cards[i].style.display = "none";
+    }
+  }
+}
+
+function toggle(btn) {
+  let more = btn.previousElementSibling;
+
+  if (more.style.display === "block") {
+    more.style.display = "none";
+    btn.innerText = "اقرأ المزيد";
+  } else {
+    more.style.display = "block";
+    btn.innerText = "اقرأ أقل";
+  }
+}
+</script>
+
+</body>
+</html>
